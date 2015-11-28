@@ -11,7 +11,7 @@ import android.widget.EditText;
 public class Numbers extends Activity implements View.OnClickListener{
 
     EditText number;
-    Button sendInfo, getResult;
+    Button sendInfo;
 
     @Override
     public void onClick(View v) {
@@ -36,7 +36,6 @@ public class Numbers extends Activity implements View.OnClickListener{
         setContentView(R.layout.number);
         number = (EditText)findViewById(R.id.editText1);
         sendInfo = (Button)findViewById(R.id.button1);
-        getResult = (Button)findVuewById(R.id.butRes);
         sendInfo.setOnClickListener(this);
     }
 }
