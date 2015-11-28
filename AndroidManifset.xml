@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.proto.calculator" >
+    package="com.example.proto.application" >
 
     <application
         android:allowBackup="true"
@@ -8,27 +8,47 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".MainCalculator" >
+        <activity android:name="com.example.proto.application.MainCalculator" >
             <intent-filter>
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <action android:name="com.example.proto.calculator.MAINCALCULATOR" />
+                <action android:name="com.example.proto.application.MAINCALCULATOR" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Numbers" >
+        <activity android:name="com.example.proto.application.Numbers" >
             <intent-filter>
-                <action android:name="com.example.proto.calculator.NUMBERS" />
+                <action android:name="com.example.proto.application.NUMBERS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Settings" >
+        <activity android:name="com.example.proto.application.Settings" >
             <intent-filter>
-                <!--<action android:name="com.example.proto.calculator.SETTINGS" />-->
+                <action android:name="com.example.proto.application.SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.proto.application.InternalStorage" >
+            <intent-filter>
+                <action android:name="com.example.proto.application.INTERNALSTORAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.proto.application.Menu" >
+            <intent-filter>
+                <!--<action android:name="com.example.proto.application.MENU" />-->
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.proto.application.Reading" >
+            <intent-filter>
+                <action android:name="com.example.proto.application.READING" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
