@@ -10,9 +10,9 @@
         android:theme="@style/AppTheme" >
         <activity android:name=".MainCalculator" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <action android:name="com.example.proto.calculator.MAINCALCULATOR" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -21,6 +21,14 @@
                 <action android:name="com.example.proto.calculator.NUMBERS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Settings" >
+            <intent-filter>
+                <!--<action android:name="com.example.proto.calculator.SETTINGS" />-->
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
