@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="btn_width">Width</string>
+    <string name="btn_height">Height</string>
+    <string name="btn_calc">Calculator</string>
+    <string name="check_box_display_name">Display Name</string>
+    <string name="txtview_your_name">Your Name</string>
+    <string name="btn_save">Save</string>
+</resources>
