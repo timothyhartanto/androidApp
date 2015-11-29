@@ -1,14 +1,15 @@
 package com.example.proto.application;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class Menu extends Activity implements View.OnClickListener{
 
-    String activities[] = {"MainCalculator", "SETTINGS", "INTERNALSTORAGE", "READING"};
+    String activities[] = {"MAINCALCULATOR", "SETTINGS", "INTERNALSTORAGE", "READING"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +21,12 @@ public class Menu extends Activity implements View.OnClickListener{
         int id = v.getId();
 
         for(int i = 0; i < activities.length; i++){
-            if(id == getResources().getIdentifier("btn" + i, "id", "com.example.proto.application")){
+            if(id == getResources().getIdentifier("btn" + i, "id", getPackageName())){
                 Intent intent = new Intent("com.example.proto.application." + activities[i]);
                 startActivity(intent);
             }
         }
+
 
     }
 }
