@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.proto.application" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,12 +13,13 @@
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.proto.application.MainCalculator" >
             <intent-filter>
+                <!--<action android:name="android.intent.action.MAIN" />-->
                 <action android:name="com.example.proto.application.MAINCALCULATOR" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.proto.application.Numbers" >
+        <activity android:name=".Numbers" >
             <intent-filter>
                 <action android:name="com.example.proto.application.NUMBERS" />
 
@@ -23,21 +27,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.proto.application.Settings" >
+        <activity android:name=".Settings" >
             <intent-filter>
                 <action android:name="com.example.proto.application.SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.proto.application.InternalStorage" >
+        <activity android:name=".InternalStorage" >
             <intent-filter>
+                <!--<action android:name="android.intent.action.MAIN" />-->
                 <action android:name="com.example.proto.application.INTERNALSTORAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.proto.application.Menu" >
+        <activity android:name=".Menu" >
             <intent-filter>
                 <!--<action android:name="com.example.proto.application.MENU" />-->
                 <action android:name="android.intent.action.MAIN" />
@@ -45,9 +50,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.proto.application.Reading" >
+        <activity android:name=".Reading" >
             <intent-filter>
                 <action android:name="com.example.proto.application.READING" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".SaveToSD" >
+            <intent-filter>
+                <action android:name="com.example.proto.application.SAVETOSD" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
