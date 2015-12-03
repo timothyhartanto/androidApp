@@ -1,9 +1,19 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Android Application</string>
     <string name="btn_width">Width</string>
     <string name="btn_height">Height</string>
     <string name="btn_calc">Calculator</string>
     <string name="check_box_display_name">Display Name</string>
     <string name="txtview_your_name">Your Name</string>
     <string name="btn_save">Save</string>
+    <string name="txtview_file_name">File Name</string>
+    <string name="btn_passing_data">Passing Data</string>
+    <string name="btn_settings">Settings</string>
+    <string name="btn_internal_storage">Internal Storage</string>
+    <string name="btn_reading_data">Reading Data</string>
+    <string name="btn_load">Load</string>
+    <string name="btn_save_to_sd">Save To SD Card</string>
+    <string name="txt_save_to_sd">Save stuff to the SD:</string>
+    <string name="btn_save_pict">Save A Picture</string>
+    <string name="btn_save_sound">Save A Sound</string>
 </resources>
