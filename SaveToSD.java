@@ -1,6 +1,7 @@
 package com.example.proto.application;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -15,11 +16,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class SaveToSD extends Activity implements View.OnClickListener{
+public class SaveToSD extends Activity implements View.OnClickListener, View.OnLongClickListener{
 
     Button savePic, saveSound;
     EditText fileName;
     boolean isSDAvailable = false, isSDWriteable = false;
+    MediaPlayer music;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class SaveToSD extends Activity implements View.OnClickListener{
         fileName =(EditText)findViewById(R.id.filename);
         savePic.setOnClickListener(this);
         saveSound.setOnClickListener(this);
+        saveSound.setOnLongClickListener(this);
         checkSDCard();
     }
 
@@ -37,31 +40,36 @@ public class SaveToSD extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.savePicture:
-                if(isSDAvailable && isSDWriteable){
-                    File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                    String name = fileName.getText().toString();
-                    File file = new File(path, name + ".jpg");
-
-                    // check validity of the file path
-                    try {
-                        path.mkdirs();
-                        InputStream inputStream = getResources().openRawResource(R.raw.image1);
-                        OutputStream outputStream = new FileOutputStream(file);
-
-                        byte[] data = new byte[inputStream.available()];
-                        inputStream.read(data);
-                        outputStream.write(data);
-
-                        inputStream.close();
-                        outputStream.close();
-                    }catch(IOException e){
-                        e.printStackTrace();
-                    }
-                }
+                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                String name = fileName.getText().toString();
+                File file = new File(path, name + ".jpg");
+                saveData(path, file, R.drawable.image1);
+                music.stop();
                 break;
             case R.id.saveSound:
-
+                music = MediaPlayer.create(this, R.raw.music);
+                music.start();
                 break;
+        }
+    }
+
+    private void saveData(File path, File file, int info) {
+        if(isSDAvailable && isSDWriteable){
+            // check validity of the file path
+            try {
+                path.mkdirs(); // make the directory if it is not available yet
+                InputStream inputStream = getResources().openRawResource(info);
+                OutputStream outputStream = new FileOutputStream(file);
+
+                byte[] data = new byte[inputStream.available()];
+                inputStream.read(data);
+                outputStream.write(data);
+
+                inputStream.close();
+                outputStream.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -82,4 +90,12 @@ public class SaveToSD extends Activity implements View.OnClickListener{
         }
     }
 
+    @Override
+    public boolean onLongClick(View v) {
+        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+        String name = fileName.getText().toString();
+        File file = new File(path, name + ".mp3");
+        saveData(path, file, R.raw.music);
+        return false;
+    }
 }
