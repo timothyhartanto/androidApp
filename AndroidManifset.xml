@@ -64,12 +64,7 @@
             </intent-filter>
         </activity>
 
-<activity android:name=".Database" >
-            <intent-filter>
-                <action android:name="com.example.proto.application.DATABASE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>
